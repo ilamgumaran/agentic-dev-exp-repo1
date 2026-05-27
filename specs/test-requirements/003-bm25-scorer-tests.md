@@ -1,0 +1,37 @@
+# Test Requirements: BM25 Scorer
+
+## ScorerInterfaceTest
+
+- test_scorer_interface_returns_list_of_scores
+
+## BM25ScorerTest
+
+- test_score_single_term_single_document
+- test_score_multi_term_single_document
+- test_score_single_term_multi_document
+- test_score_empty_query_returns_zeros
+- test_score_empty_document_returns_zero
+- test_score_term_not_in_document_contributes_zero
+- test_higher_term_frequency_gives_higher_score
+- test_document_length_normalization
+- test_idf_weighting_rare_terms_score_higher
+- test_default_config_k1_and_b
+- test_custom_k1_zero_ignores_term_frequency
+- test_custom_b_zero_no_length_normalization
+- test_custom_b_one_full_length_normalization
+- test_single_document_avgdl_equals_doc_length
+- test_multi_field_scoring_with_equal_weights
+- test_multi_field_scoring_with_custom_weights
+- test_multi_field_zero_weight_ignores_field
+- test_score_is_non_negative (property-based)
+- test_score_deterministic_same_input_same_output
+- test_scores_returned_in_document_order
+- test_thread_safety_concurrent_scoring
+
+## BM25ConfigTest
+
+- test_default_config_values
+- test_custom_config_values
+- test_negative_k1_throws_exception
+- test_b_below_zero_throws_exception
+- test_b_above_one_throws_exception

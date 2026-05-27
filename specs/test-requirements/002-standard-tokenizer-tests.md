@@ -1,0 +1,25 @@
+# Test Requirements: Standard Tokenizer
+
+## TokenizerInterfaceTest
+
+- test_tokenizer_interface_returns_list_of_tokens
+
+## StandardTokenizerTest
+
+- test_tokenize_simple_text
+- test_tokenize_converts_to_lowercase
+- test_tokenize_removes_punctuation
+- test_tokenize_removes_default_stopwords
+- test_tokenize_assigns_sequential_positions
+- test_tokenize_assigns_field_name
+- test_tokenize_with_null_text_throws_exception
+- test_tokenize_with_empty_text_returns_empty
+- test_tokenize_with_blank_text_returns_empty
+- test_tokenize_with_only_stopwords_returns_empty
+- test_tokenize_with_only_punctuation_returns_empty
+- test_tokenize_single_word
+- test_tokenize_multiple_spaces_between_words
+- test_tokenize_with_custom_stopwords
+- test_tokenize_with_no_stopwords
+- test_tokenize_unicode_text
+- test_tokenize_is_thread_safe

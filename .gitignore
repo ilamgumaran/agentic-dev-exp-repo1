@@ -1,0 +1,23 @@
+# Java / Gradle
+reranker-core/build/
+reranker-core/.gradle/
+reranker-core/bin/
+*.class
+*.jar
+*.war
+
+# Rust / Cargo
+reranker-ui/target/
+reranker-ui/Cargo.lock
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

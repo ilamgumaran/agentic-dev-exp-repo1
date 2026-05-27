@@ -1,0 +1,48 @@
+# Test Requirements: Core Data Model
+
+## DocumentTest
+
+- test_of_creates_document_with_id_and_fields
+- test_of_makes_defensive_copy_of_fields
+- test_of_with_null_id_throws_exception
+- test_of_with_blank_id_throws_exception
+- test_of_with_null_fields_throws_exception
+- test_of_with_empty_fields_is_valid
+- test_fields_map_is_immutable
+- test_equals_and_hashcode_by_id_and_fields
+
+## QueryTest
+
+- test_of_creates_query_with_text_and_terms
+- test_of_splits_text_into_lowercase_terms
+- test_of_with_multiple_spaces_collapses_terms
+- test_of_with_single_character_is_valid
+- test_of_with_null_text_throws_exception
+- test_of_with_blank_text_throws_exception
+- test_terms_are_lowercase
+- test_terms_list_is_immutable
+
+## TokenTest
+
+- test_token_stores_value_position_and_field
+- test_token_value_is_lowercase
+
+## ScoreTest
+
+- test_score_stores_scorer_name_and_value
+- test_score_with_zero_value_is_valid
+- test_score_with_positive_value_is_valid
+- test_score_with_negative_value_throws_exception
+
+## RankedResultTest
+
+- test_ranked_result_stores_document_score_and_components
+- test_comparable_orders_by_score_descending
+- test_comparable_breaks_ties_by_document_id_ascending
+- test_component_scores_list_is_immutable
+
+## FieldWeightTest
+
+- test_of_creates_field_weight
+- test_of_with_zero_weight_is_valid
+- test_of_with_negative_weight_throws_exception

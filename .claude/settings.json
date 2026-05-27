@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd reranker-core && gradle *)",
+      "Bash(cd reranker-ui && cargo *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(find *)",
+      "Bash(ls *)"
+    ],
+    "deny": [
+      "Edit(specs/*)",
+      "Write(specs/*)",
+      "Edit(CLAUDE.md)",
+      "Edit(AGENTS.md)",
+      "Write(CLAUDE.md)",
+      "Write(AGENTS.md)"
+    ]
+  }
+}

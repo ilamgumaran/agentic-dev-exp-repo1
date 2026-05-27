@@ -1,0 +1,40 @@
+# Test Requirements: ReRank Pipeline
+
+## ReRankPipelineTest
+
+- test_build_with_all_components_succeeds
+- test_build_without_tokenizer_throws
+- test_build_without_scorer_throws
+- test_build_without_aggregator_throws
+- test_rank_single_scorer_single_document
+- test_rank_single_scorer_multi_document_sorted
+- test_rank_multi_scorer_weighted_aggregation
+- test_rank_with_top_k_truncates
+- test_rank_with_top_k_zero_returns_empty
+- test_rank_with_top_k_greater_than_docs_returns_all
+- test_rank_empty_documents_returns_empty
+- test_rank_empty_query_returns_zero_scores
+- test_rank_results_sorted_by_score_descending
+- test_rank_tiebreak_by_document_id_ascending
+- test_ranked_results_include_component_scores
+- test_pipeline_is_immutable_after_build
+- test_pipeline_is_thread_safe
+
+## WeightedAggregatorTest
+
+- test_weighted_aggregate_single_score
+- test_weighted_aggregate_multi_score
+- test_weighted_aggregate_wrong_count_throws
+- test_weighted_aggregate_zero_weight_ignores_score
+
+## MaxAggregatorTest
+
+- test_max_aggregate_returns_highest
+- test_max_aggregate_single_score
+- test_max_aggregate_all_zeros
+
+## AverageAggregatorTest
+
+- test_average_aggregate_returns_mean
+- test_average_aggregate_single_score
+- test_average_aggregate_all_zeros
