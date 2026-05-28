@@ -25,16 +25,19 @@ package dev.reranker.fusion;
 
 public interface FusionStrategy {
     /**
-     * @param documents     the documents being ranked, in a stable order
+     * @param query          the original query (used by query-aware strategies like LLM re-ranking;
+     *                       rank/score-based strategies such as RRF may ignore it)
+     * @param documents      the documents being ranked, in a stable order
      * @param scoresByScorer one list of scores per scorer; each inner list is
      *                       in the same order as documents (scoresByScorer.get(i).get(j)
      *                       is scorer i's score for documents.get(j))
      * @return final fused score per document, in the same order as documents
      */
-    double[] fuse(List<Document> documents, List<List<Score>> scoresByScorer);
+    double[] fuse(Query query, List<Document> documents, List<List<Score>> scoresByScorer);
 }
 ```
 
+- The `query` parameter is included so query-aware fusion (e.g. LLM re-ranking, spec 006) can build prompts. Rank/score-based strategies (RRF, MinMax, ZScore) ignore it.
 - `scoresByScorer.size()` equals the number of scorers
 - Each inner list has the same size as `documents`
 - Returns a `double[]` of length `documents.size()`, final score per document in document order
@@ -104,7 +107,7 @@ var pipeline = ReRankPipeline.builder()
 - `build()` throws IllegalStateException if both or neither is set
 - When fusion is used, the execution flow changes:
   1. Run all scorers → collect `List<List<Score>>`
-  2. Pass to `FusionStrategy.fuse()` → get `double[]` final scores
+  2. Pass query + documents + scores to `FusionStrategy.fuse(query, documents, scoresByScorer)` → get `double[]` final scores
   3. Build RankedResult per document with fused score and component scores
   4. Sort, apply topK, return
 
